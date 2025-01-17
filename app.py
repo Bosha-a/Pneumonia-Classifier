@@ -19,13 +19,13 @@ if uploaded_file is not None:
     image_array = np.array(image) / 255.0 
     image_array = np.expand_dims(image_array, axis=0)  
 
-#     if st.button('Predict'):
-#         prediction = model.predict(image_array)[0][0]
-#         predicted_class = 'Pneumonia' if prediction > 0.5 else 'Normal'
+    if st.button('Predict'):
+        prediction = model.predict(image_array)[0][0]
+        predicted_class = 'Pneumonia' if prediction > 0.5 else 'Normal'
 
-#         if predicted_class == 'Pneumonia':
-#             st.error(f"Case: {predicted_class}")
-#         else:
-#             st.success(f"Case: {predicted_class}")
-# else:
-#     st.error("Please upload an image file (PNG, JPG, JPEG).")
+        if predicted_class == 'Pneumonia':
+            st.error(f"Case: {predicted_class}")
+        else:
+            st.success(f"Case: {predicted_class}")
+else:
+    st.error("Please upload an image file (PNG, JPG, JPEG).")
