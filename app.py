@@ -1,10 +1,10 @@
 import streamlit as st
 import pickle as pkl 
-from tensorflow.keras.models import load_model
+from tensorflow import keras
 from PIL import Image
 import numpy as np 
 
-model = load_model('pneumonia.keras')
+model = keras.models.load_model('pneumonia.keras')
 
 st.title('X-Ray Pneumonia Classifer')
 
