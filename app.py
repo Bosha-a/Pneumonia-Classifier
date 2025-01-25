@@ -8,7 +8,6 @@ model = keras.models.load_model('pneumonia.keras')
 
 st.title('X-Ray Pneumonia Classifer')
 
-
 # File uploader for image input
 uploaded_file = st.file_uploader('Upload an X-ray image (PNG, JPG, JPEG)', type=['png', 'jpg', 'jpeg'])
 
@@ -20,6 +19,7 @@ if uploaded_file is not None:
     image_array = np.expand_dims(image_array, axis=0)  
 
     if st.button('Predict'):
+        st.image(uploaded_file, caption="Uploaded X-ray Image")
         prediction = model.predict(image_array)[0][0]
         predicted_class = 'Pneumonia' if prediction > 0.5 else 'Normal'
 
